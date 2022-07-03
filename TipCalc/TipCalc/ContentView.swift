@@ -103,7 +103,7 @@ struct ContentView2Alert: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        // ContentView()
-        ContentView2Alert()
+        ContentView()
+        // ContentView2Alert()
     }
 }
