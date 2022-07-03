@@ -11,6 +11,7 @@
 		945B62972871D8AA00BFA1DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945B62962871D8AA00BFA1DB /* ContentView.swift */; };
 		945B62992871D8AC00BFA1DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945B62982871D8AC00BFA1DB /* Assets.xcassets */; };
 		945B629C2871D8AC00BFA1DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945B629B2871D8AC00BFA1DB /* Preview Assets.xcassets */; };
+		945B62A32871DBA000BFA1DB /* SheetNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945B62A22871DBA000BFA1DB /* SheetNavView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		945B62962871D8AA00BFA1DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		945B62982871D8AC00BFA1DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		945B629B2871D8AC00BFA1DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		945B62A22871DBA000BFA1DB /* SheetNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetNavView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				945B62942871D8AA00BFA1DB /* ViewNavApp.swift */,
 				945B62962871D8AA00BFA1DB /* ContentView.swift */,
+				945B62A22871DBA000BFA1DB /* SheetNavView.swift */,
 				945B62982871D8AC00BFA1DB /* Assets.xcassets */,
 				945B629A2871D8AC00BFA1DB /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				945B62972871D8AA00BFA1DB /* ContentView.swift in Sources */,
+				945B62A32871DBA000BFA1DB /* SheetNavView.swift in Sources */,
 				945B62952871D8AA00BFA1DB /* ViewNavApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
