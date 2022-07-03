@@ -77,10 +77,64 @@ struct ContentView: View {
 }
 
 
-struct ContentView2Modifiers: View {
+
+struct CustomText: View {
+    var name: String
     
     var body: some View {
-        Text("ContentView2Modifiers")
+        Text(name)
+            .customM()
+        
+    }
+}
+
+extension View {
+    func customM() -> some View {
+        self.modifier(CustomModifier())
+    }
+}
+
+struct CustomModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .padding()
+            .foregroundColor(.red)
+            .background(.black)
+    }
+}
+
+
+struct ContentView2Modifiers: View {
+    
+    @State private var useGreenText = false
+    
+    var body: some View {
+        
+        VStack{
+            Button("Hello green"){
+                self.useGreenText.toggle()
+            }.foregroundColor(useGreenText ? .green : .black)
+            
+            
+            // Вариант 1
+            Text("First")
+                .font(.largeTitle)
+                .padding()
+                .foregroundColor(.red)
+                .background(.black)
+            Text("Second")
+                .font(.largeTitle)
+                .padding()
+                .foregroundColor(.red)
+                .background(.black)
+            
+            //Вариант 2 (вынесли в структуру выше)
+            CustomText(name: "First")
+            CustomText(name: "Second")
+            
+        }
+        
     }
 }
 
@@ -88,6 +142,7 @@ struct ContentView2Modifiers: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        // ContentView()
+        ContentView2Modifiers()
     }
 }
