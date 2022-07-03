@@ -138,11 +138,54 @@ struct ContentView2Modifiers: View {
     }
 }
 
+///_________________________///
+
+// @State - property wrapper
+// служит для того чтобы делиться данными внутри одного View
+
+// @ObservedObject
+// @EnviromentObject - можно делиться данными для всех View (типа static для всех)
+// Нужны для связи нескольких view
+
+// @Published - для свойств класса
+
+class User : ObservableObject{
+    @Published var firstName = "Ivan"
+    @Published var lastName = "Petrov"
+}
+
+
+struct ContentViewObservedObjectPublishedEnviromentObject: View {
+    
+    @ObservedObject private var user = User() // User должен быть подписан на ObservableObject
+    
+    @ObservedObject var settings = UserSettings()
+    
+    var body: some View {
+        VStack{
+            Text("\(user.firstName) and \(user.lastName)")
+            TextField("First name", text: $user.firstName)
+            TextField("Last name", text: $user.lastName)
+            Text("Your score is \(settings.score)")
+            Button(action: {
+                self.settings.score += 1
+            }) {
+                Text("Inc")
+            }
+        }
+    }
+}
+
+
+
+
+
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         // ContentView()
-        ContentView2Modifiers()
+        // ContentView2Modifiers()
+        ContentViewObservedObjectPublishedEnviromentObject()
     }
 }
