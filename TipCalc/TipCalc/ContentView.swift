@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Калькулятор чаевых
 struct ContentView: View {
     
     @State private var checkAmount = ""
@@ -56,8 +57,53 @@ struct ContentView: View {
     }
 }
 
+// Alert tutorial and actionSheets
+struct ContentView2Alert: View {
+    
+    @State private var showingAlert = false
+    @State private var showingAlert1 = false
+    @State private var showingAlert2 = false
+    
+    @State private var sheet = false
+    
+    var body: some View {
+        VStack{
+            Button("Show Alert") {
+                self.showingAlert = true
+            }.alert(isPresented: $showingAlert){
+                Alert(title: Text("Hello"), message: Text("detail"), dismissButton: .default(Text("OK")))
+            }.padding()
+            
+            HStack{
+                Button("Show1"){
+                    self.showingAlert1 = true
+                }.alert(isPresented: $showingAlert1){
+                    Alert(title: Text("showingAlert1"), message: Text("showingAlert1"), dismissButton: .cancel())
+                }
+                
+                Button("Show2"){
+                    self.showingAlert2 = true
+                }.alert(isPresented: $showingAlert2){
+                    Alert(title: Text("showingAlert2"), message: Text("showingAlert2"), dismissButton: .cancel())
+                }
+            }
+            
+            // Action Sheets
+            Button(action: {
+                self.sheet = true
+            }) {
+                Text("Show Action Sheets")
+            }.actionSheet(isPresented: $sheet){
+                ActionSheet(title: Text("Sheet!!!"), message: Text("Only 1 choose"), buttons: [.default(Text("Dissmiss AS")), .cancel(), .destructive(Text("Destructive"))])
+            }.padding()
+        }
+    }
+}
+
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        // ContentView()
+        ContentView2Alert()
     }
 }
